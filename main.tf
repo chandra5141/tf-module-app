@@ -96,14 +96,14 @@ resource "aws_security_group" "main" {
 
   }
 
-#  ingress {
-#    description      = "prometheus"
-#    from_port        = 9100
-#    to_port          = 9100
-#    protocol         = "tcp"
-#    cidr_blocks      = var.monitor_cidr
-#
-#  }
+  ingress {
+    description      = "prometheus"
+    from_port        = 9100
+    to_port          = 9100
+    protocol         = "tcp"
+    cidr_blocks      = var.monitor_cidr
+
+  }
 
   egress {
     from_port        = 0
