@@ -219,20 +219,20 @@ resource "aws_lb_listener_rule" "backend_listener_rule" {
 
 // below listener is only for frontend public thing
 
-resource "aws_lb_listener" "frontend_app_listener_rule" {
-  count = var.listener_priority == 0 ? 1 : 0
-  load_balancer_arn = var.alb_arn
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
-#  certificate_arn   = "arn:aws:acm:us-east-1:195381906265:certificate/b5ff1caa-1d2a-4922-8567-cea866b137bc"
-
-  default_action {
-    type = "forward"
-    target_group_arn = aws_lb_target_group.target_group.arn
-
-  }
-}
+#resource "aws_lb_listener" "frontend_app_listener_rule" {
+#  count = var.listener_priority == 0 ? 1 : 0
+#  load_balancer_arn = var.alb_arn
+#  port              = "443"
+#  protocol          = "HTTPS"
+#  ssl_policy        = "ELBSecurityPolicy-2016-08"
+##  certificate_arn   = "arn:aws:acm:us-east-1:195381906265:certificate/b5ff1caa-1d2a-4922-8567-cea866b137bc"
+#
+#  default_action {
+#    type = "forward"
+#    target_group_arn = aws_lb_target_group.target_group.arn
+#
+#  }
+#}
 
 
 
