@@ -105,7 +105,6 @@ resource "aws_security_group" "main" {
 #
 #  }
 
-
   egress {
     from_port        = 0
     to_port          = 0
@@ -117,7 +116,6 @@ resource "aws_security_group" "main" {
   tags = merge (local.common_tags, { Name = "${var.env}-${var.component}-security-group" } )
 
 }
-
 
 
 resource "aws_launch_template" "launch_template" {
