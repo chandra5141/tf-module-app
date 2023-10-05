@@ -197,6 +197,7 @@ resource "aws_lb_target_group" "target_group" {
 
   }
   deregistration_delay = "10"
+#  to deregister the targets from the target group like with in 10 sec it will relase the targets from the target group
 }
 
 //below listener for backend components
