@@ -44,14 +44,14 @@ resource "aws_iam_policy" "aws_parameter_policy" {
           "ssm:GetParameter"
         ],
         "Resource" : [
-          "arn:aws:ssm:us-east-1:195381906265:parameter/${var.env}.${var.component}*",
-          "arn:aws:ssm:us-east-1:195381906265:parameter/nexus*",
-          "arn:aws:ssm:us-east-1:195381906265:parameter/${var.env}.docdb*",
-          "arn:aws:ssm:us-east-1:195381906265:parameter/${var.env}.elastic**",
-          "arn:aws:ssm:us-east-1:195381906265:parameter/${var.env}.rds*",
-          "arn:aws:ssm:us-east-1:195381906265:parameter/${var.env}.rabbitmq*",
-          "arn:aws:ssm:us-east-1:195381906265:parameter/grafana*",
-          "arn:aws:ssm:us-east-1:195381906265:parameter/${var.env}-SSH*"
+          "arn:aws:ssm:us-east-1:044366763273:parameter/${var.env}.${var.component}*",
+          "arn:aws:ssm:us-east-1:044366763273:parameter/nexus*",
+          "arn:aws:ssm:us-east-1:044366763273:parameter/${var.env}.docdb*",
+          "arn:aws:ssm:us-east-1:044366763273:parameter/${var.env}.elastic**",
+          "arn:aws:ssm:us-east-1:044366763273:parameter/${var.env}.rds*",
+          "arn:aws:ssm:us-east-1:044366763273:parameter/${var.env}.rabbitmq*",
+          "arn:aws:ssm:us-east-1:044366763273:parameter/grafana*",
+          "arn:aws:ssm:us-east-1:044366763273:parameter/${var.env}-SSH*"
 
 
         ]
@@ -174,7 +174,7 @@ resource "aws_autoscaling_policy" "cpu-tracking-policy" {
 
 
 resource "aws_route53_record" "alb_DNS_record" {
-  zone_id = "Z0388000D98EZSBQJXAU"
+  zone_id = "Z03530733RI8BOR2515BY"
   name    = "${var.component}-${var.env}.chandupcs.online"
   type    = "CNAME"
   ttl     = 30
@@ -226,7 +226,7 @@ resource "aws_lb_listener" "frontend_app_listener_rule" {
   port              = "80"
   protocol          = "HTTP"
 #  ssl_policy        = "ELBSecurityPolicy-2016-08"
-#  certificate_arn   = "arn:aws:acm:us-east-1:195381906265:certificate/b5ff1caa-1d2a-4922-8567-cea866b137bc"
+#  certificate_arn   = "arn:aws:acm:us-east-1:044366763273:certificate/b5ff1caa-1d2a-4922-8567-cea866b137bc"
 
   default_action {
     type = "forward"
