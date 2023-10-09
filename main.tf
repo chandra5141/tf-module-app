@@ -236,5 +236,22 @@ resource "aws_lb_listener" "frontend_app_listener_rule" {
   }
 }
 
+resource "aws_lb_listener" "frontend_app_listener_rule_http" {
+  count = var.listener_priority == 0 ? 1 : 0
+  load_balancer_arn = var.alb_arn
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    type = "redirect"
+
+    redirect {
+      status_code = "HTTP_301"
+      protocol = "HTTPS"
+      port = "443"
+    }
+  }
+}
+
 
 
