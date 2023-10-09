@@ -223,10 +223,11 @@ resource "aws_lb_listener_rule" "backend_listener_rule" {
 resource "aws_lb_listener" "frontend_app_listener_rule" {
   count = var.listener_priority == 0 ? 1 : 0
   load_balancer_arn = var.alb_arn
-  port              = "80"
-  protocol          = "HTTP"
-#  ssl_policy        = "ELBSecurityPolicy-2016-08"
-#  certificate_arn   = "arn:aws:acm:us-east-1:044366763273:certificate/b5ff1caa-1d2a-4922-8567-cea866b137bc"
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = "arn:aws:acm:us-east-1:044366763273:certificate/06a2a4d4-4837-4109-ae01-b0c7ea2f901c"
+
 
   default_action {
     type = "forward"
